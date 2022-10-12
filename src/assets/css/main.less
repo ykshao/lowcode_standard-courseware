@@ -1,0 +1,469 @@
+/**
+ * 全局样式
+ */
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  display: flex;
+  height: 100%;
+}
+
+.csw-button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #FFF;
+  border: 1px solid #DCDFE6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0;
+  transition: .1s;
+  font-weight: 500;
+  padding: 12px 20px;
+  font-size: 14px;
+}
+
+.root-layout {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.root-container {
+  display: flex;
+  height: 100%;
+  min-height: 460px;
+  overflow: hidden;
+}
+
+.main-container {
+  position: relative;
+}
+
+.main-header {
+  display: flex;
+  background: #8492a6;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /*-webkit-box-shadow: 0 1px 4px hsla(0, 0%, 88.2%, .5);*/
+  /*box-shadow: 0 1px 4px hsla(0, 0%, 88.2%, .5);*/
+}
+
+.header-bar {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  .logo {
+    width: 100px;
+  }
+
+  .other {
+    flex: 1;
+  }
+}
+
+.high-z {
+  z-index: 100;
+}
+
+.low-z {
+  z-index: 1;
+}
+
+// 中间工作区样式
+.main-middle {
+  position: absolute;
+  background: #f1f3f7;
+  left: 80px;
+  right: 260px;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 9;
+
+  .tool-bar {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 6px 0px;
+    border-radius: 5px;
+    display: inline;
+
+    .tool-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .text-scale {
+        margin-left: 7px;
+        margin-right: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        display: inline-block;
+        width: 30px;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      .iconfont:hover {
+        color: red;
+      }
+    }
+
+    .tool-divider {
+      display: inline-block;
+      height: 12px;
+      width: 1px;
+      background: gray;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+
+  .tile-board .tile:hover {
+    outline: 1px solid #ff6e7b !important;
+  }
+
+  .tile-board.is-tile-move .tile {
+    outline: 0 !important;
+  }
+
+  // 元素编辑框样式
+  .tile-edit-box .tile-stick {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    margin-top: -5px;
+    margin-right: 0;
+    cursor: e-resize;
+    z-index: 100;
+    background: #fff;
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    border: 1px solid #FF7F50;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &.tile-stick-tl {
+      margin-top: 5px;
+      margin-left: 5px;
+      cursor: nw-resize;
+      border-radius: 10px;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+
+    &.tile-stick-tm {
+      margin-top: .5px;
+      margin-left: -6.5px;
+      cursor: n-resize;
+      width: 18px;
+      height: 8px;
+      border-radius: 4px;
+    }
+
+    &.tile-stick-tr {
+      margin-top: 5px;
+      cursor: ne-resize;
+      border-radius: 10px;
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+    &.tile-stick-mr {
+      margin-top: -3.5px;
+      margin-left: 2px;
+      cursor: e-resize;
+      width: 8px;
+      height: 18px;
+      border-radius: 4px;
+    }
+
+    &.tile-stick-br {
+      margin-top: 0;
+      cursor: se-resize;
+      border-radius: 10px;
+      -webkit-transform: rotate(270deg);
+      transform: rotate(270deg);
+    }
+
+    &.tile-stick-bm {
+      margin-top: 1.5px;
+      margin-left: -6.5px;
+      cursor: s-resize;
+      width: 18px;
+      height: 8px;
+      border-radius: 4px;
+    }
+
+    &.tile-stick-bl {
+      margin-top: 0;
+      margin-left: 5px;
+      cursor: sw-resize;
+      border-radius: 10px;
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    &.tile-stick-ml {
+      margin-left: 1px;
+      margin-top: -3.5px;
+      cursor: w-resize;
+      width: 8px;
+      height: 18px;
+      border-radius: 4px;
+    }
+
+    &.tile-rotate {
+      width: 28px;
+      height: 28px;
+      background-image: url('~@/assets/images/rotate.png');
+      border-radius: 50%;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      margin-left: -15px;
+      cursor: url('~@/assets/images/hand.png') 8 8, auto;
+      position: relative;
+      border-width: 0;
+      border-style: none;
+      box-shadow: none;
+    }
+  }
+
+  .tile-edit-box .tile-stick-line {
+    border: 0 solid #FF7F50;
+    position: absolute;
+    margin-left: 4px;
+    margin-top: 4px;
+    z-index: 10;
+
+    &.left-line {
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100px;
+      margin-left: 4px;
+      border-right-width: 3px;
+    }
+
+    &.top-line {
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 0;
+      border-bottom-width: 3px;
+    }
+
+    &.right-line {
+      left: 100px;
+      top: 0;
+      width: 0;
+      height: 100px;
+      margin-left: 5px;
+      border-right-width: 3px;
+    }
+
+    &.bottom-line {
+      top: 100px;
+      left: 0;
+      width: 100px;
+      height: 0;
+      border-bottom-width: 3px;
+      margin-top: 5px;
+    }
+  }
+
+  .tile-edit-box.is-tile-move {
+    .tile-stick {
+      &.tile-stick-tm, &.tile-stick-ml, &.tile-stick-mr, &.tile-stick-bm, &.tile-rotate {
+        display: none !important;
+      }
+
+      &.tile-stick-tl, &.tile-stick-tr, &.tile-stick-bl, &.tile-stick-br {
+        border-width: 0;
+        background: #666;
+        border-radius: 0;
+        width: 4px;
+        height: 4px;
+      }
+
+      &.tile-stick-tl {
+        margin-top: 9px;
+        margin-left: 9px;
+      }
+
+      &.tile-stick-tr {
+        margin-top: 9px;
+        margin-left: 4px;
+      }
+
+      &.tile-stick-bl {
+        margin-top: 4px;
+        margin-left: 9px;
+      }
+
+      &.tile-stick-br {
+        margin-top: 4px;
+        margin-left: 4px;
+      }
+    }
+
+    .tile-stick-line {
+      border-color: rgba(255, 110, 123, 0.4);
+    }
+  }
+}
+
+
+// 左侧栏通用样式
+.aside-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  //z-index: 100;
+
+
+  .aside-nav {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    background: #fff;
+    border-right: 1px solid #ebeef5;
+
+    .aside-nav-item {
+
+      .aside-nav-item__bd {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+        height: 70px;
+        line-height: 24px;
+        background: #fff;
+
+        i {
+          font-size: 22px;
+        }
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      &:hover {
+        background: rgba(0, 178, 184, 0.5);
+        color: #00b2b8;
+
+        .aside-menu-item__bd {
+          color: #00b2b8
+        }
+      }
+
+      &.active {
+        background: #00b2b8;
+        color: #00b2b8;
+
+        .aside-menu-item__bd {
+          color: #00b2b8;
+        }
+      }
+    }
+  }
+
+  .aside-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 95px;
+    text-align: left;
+    background: #fff;
+    z-index: 9;
+  }
+}
+
+/* 可以设置不同的进入和离开动画 */
+.slide-fadein-enter-active, .slide-fade-leave-active {
+  transition: all 0.2s ease-in;
+  transform: translateX(0%);
+}
+
+.slide-fadein-enter,
+.slide-fadein-leave,
+.slide-fadein-leave-to {
+  transition: all 0.5s linear;
+  transform: translateX(-100%);
+}
+
+// 右侧属性栏通用样式
+.aside-right {
+  position: absolute;
+  right: 0;
+  width: 260px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -5px 0 5px -5px #cecece;
+  z-index: 100;
+
+  .tile-attr-warp {
+    text-align: left;
+
+    .tile-attr-item {
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px;
+
+      .tile-attr-item__hd {
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px;
+        color: #666;
+        display: inline-block;
+      }
+    }
+
+    .tile-attr-item.inline {
+      flex-direction: row;
+      align-items: center;
+      margin: 20px;
+
+      .tile-attr-item__hd {
+        height: auto;
+        line-height: normal;
+      }
+    }
+
+  }
+}
+
+
+
